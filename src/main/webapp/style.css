@@ -1,0 +1,371 @@
+/* Modern Theme Variables */
+:root {
+    /* Light Theme */
+    --primary-light: #FF6B35;  /* Vibrant orange */
+    --secondary-light: #004E89; /* Deep blue */
+    --accent-light: #FFBE0B;   /* Golden yellow */
+    --background-light: #F8F5F2; /* Warm light gray */
+    --card-light: #FFFFFF;
+    --text-light: #333333;
+    --gray-light: #6D6D6D;
+    
+    /* Dark Theme */
+    --primary-dark: #FF8C42;   /* Softer orange */
+    --secondary-dark: #2A9D8F;  /* Teal */
+    --accent-dark: #FFBE0B;     /* Same golden yellow */
+    --background-dark: #1A1A1A; /* Dark gray */
+    --card-dark: #2D2D2D;
+    --text-dark: #E0E0E0;
+    --gray-dark: #A0A0A0;
+    
+    /* Current Theme (defaults to light) */
+    --primary: var(--primary-light);
+    --secondary: var(--secondary-light);
+    --accent: var(--accent-light);
+    --background: var(--background-light);
+    --card: var(--card-light);
+    --text: var(--text-light);
+    --gray: var(--gray-light);
+}
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--background);
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Typography */
+h1, h2, h3 {
+    color: var(--primary);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* Card Styles */
+.card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 25px 0;
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+table th {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+table td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:hover td {
+    background-color: rgba(255, 107, 53, 0.05);
+    transform: translateY(-2px);
+}
+
+/* Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 100px;
+}
+
+.btn:hover {
+    background-color: var(--secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.btn.danger {
+    background-color: #EF476F;
+}
+
+.btn.danger:hover {
+    background-color: #D43D63;
+}
+
+.btn.success {
+    background-color: #06D6A0;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--card);
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+    outline: none;
+}
+
+/* Message Styles */
+.message {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease;
+}
+
+.success-message {
+    background-color: rgba(6, 214, 160, 0.1);
+    color: #06D6A0;
+    border: 1px solid rgba(6, 214, 160, 0.3);
+}
+
+.error-message {
+    background-color: rgba(239, 71, 111, 0.1);
+    color: #EF476F;
+    border: 1px solid rgba(239, 71, 111, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.dashboard-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    color: var(--primary);
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    color: white;
+    background-color: var(--primary);
+}
+
+.dashboard-card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+.dashboard-card:hover .card-title {
+    color: white;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    color: var(--primary);
+}
+
+.dashboard-card:hover .card-icon {
+    color: white;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.card-description {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-paid {
+    background-color: rgba(6, 214, 160, 0.1);
+    color: #06D6A0;
+}
+
+.status-partial {
+    background-color: rgba(255, 190, 11, 0.1);
+    color: #FFBE0B;
+}
+
+.status-unpaid {
+    background-color: rgba(239, 71, 111, 0.1);
+    color: #EF476F;
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+    --primary: var(--primary-dark);
+    --secondary: var(--secondary-dark);
+    --accent: var(--accent-dark);
+    --background: var(--background-dark);
+    --card: var(--card-dark);
+    --text: var(--text-dark);
+    --gray: var(--gray-dark);
+}
+
+.footer-credit {
+    text-align: center;
+    font-size: 13px;
+    background-color: primary;
+    opacity: 0.6;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+    font-family: 'Poppins', sans-serif;
+      color: var(--text-muted, #555);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
